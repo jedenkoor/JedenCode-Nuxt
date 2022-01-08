@@ -14,7 +14,7 @@ export default {
       { property: 'og:title', content: 'Jedencode' },
       { property: 'og:description', content: 'Jedencode' },
       { property: 'og:type', content: 'website' },
-      { property: '"og:url', content: 'https://jedenkoor.ru/' },
+      { property: 'og:url', content: 'https://jedenkoor.ru/' },
       { property: 'og:image', content: '/images/og-share-img.jpg' },
       { property: 'og:image:width', content: '1800' },
       { property: 'og:image:height', content: '945' },
