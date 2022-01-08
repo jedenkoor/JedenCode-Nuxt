@@ -1,5 +1,8 @@
 <template>
-  <NuxtLogo />
+  <div>
+    <NuxtLogo />
+    1
+  </div>
 </template>
 
 <script>
