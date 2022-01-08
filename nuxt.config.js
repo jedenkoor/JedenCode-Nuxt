@@ -35,9 +35,6 @@ export default {
   css: [
     'normalize.css/normalize.css',
     '@/assets/styles/variables/mixins.scss',
-    '@/assets/styles/variables/colors.scss',
-    '@/assets/styles/variables/indents.scss',
-    '@/assets/styles/variables/fonts.scss',
     '@/assets/styles/global.scss',
   ],
 

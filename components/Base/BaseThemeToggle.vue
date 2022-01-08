@@ -38,29 +38,30 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 37px;
-  width: 37px;
+  height: 3.7rem;
+  width: 3.7rem;
   padding: 0;
-  background: none;
+  background: var(--main-bg);
   border: none;
   cursor: pointer;
+  transition: background-color 0.2s;
   .sun {
-    background: var(--toggle-color-secondary);
-    height: 34px;
-    width: 34px;
+    position: relative;
+    z-index: 2;
+    background-color: var(--toggle-color-secondary);
+    height: 3.4rem;
+    width: 3.4rem;
     border-radius: 50%;
-    border: 4px solid var(--main-bg);
+    border: 0.4rem solid var(--main-bg);
+    transition: background-color 0.2s, border-color 0.2s;
   }
-
   .sun__ray {
-    width: 2px;
+    width: 0.2rem;
     background: var(--toggle-color-secondary);
     display: block;
     height: 121%;
     position: absolute;
-    z-index: -1;
     transition: 0.4s all, height 0.3s ease-in-out;
-
     $columns: 12;
     @for $i from 1 through $columns {
       &:nth-child(#{$i}) {
@@ -68,53 +69,63 @@ export default {
       }
     }
   }
-
-  &:hover .sun__ray,
-  &:focus .sun__ray {
-    $columns: 12;
-
-    @for $i from 1 through $columns {
-      &:nth-child(#{$i}) {
-        transform: rotate(calc(calc(#{$i} * calc(360deg / #{$columns})) - 20deg));
+  @include hover {
+    &:hover .sun__ray,
+    &:focus-visible .sun__ray {
+      $columns: 12;
+      @for $i from 1 through $columns {
+        &:nth-child(#{$i}) {
+          transform: rotate(calc(calc(#{$i} * calc(360deg / #{$columns})) - 20deg));
+        }
+      }
+    }
+  }
+  @include active {
+    &:active .sun__ray {
+      $columns: 12;
+      @for $i from 1 through $columns {
+        &:nth-child(#{$i}) {
+          transform: rotate(calc(calc(#{$i} * calc(360deg / #{$columns})) - 20deg));
+        }
       }
     }
   }
 }
-
 .moon {
-  height: 28px;
-  width: 28px;
+  height: 2.8rem;
+  width: 2.8rem;
   position: absolute;
-  background: var(--main-bg);
+  background-color: var(--main-bg);
   border-radius: 50%;
   top: 0;
   right: 0;
   transform: scale(0) translate(25%, -25%);
   z-index: 9;
-  transition: 0.4s transform;
+  transition: transform 0.4s, background-color 0.2s;
   transform-origin: right;
 }
-
 .light-theme {
-  .theme-toggle {
-    background-color: var(--main-bg);
-  }
-
-  .theme-toggle:hover,
-  .theme-toggle:focus {
-    .moon {
-      transform: scale(1) translate(-3%, -18%);
+  @include hover {
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      .moon {
+        transform: scale(1) translate(-3%, -18%);
+      }
     }
   }
-
+  @include active {
+    .theme-toggle:active {
+      .moon {
+        transform: scale(1) translate(-3%, -18%);
+      }
+    }
+  }
   .moon {
     transform: scale(1) translate(11%, -11%);
   }
-
   .theme-toggle .sun__ray {
     height: 0;
     transition: 0.4s, transform 0.4s, height 0.2s 0.1s;
-
     $columns: 12;
     @for $i from 1 through $columns {
       &:nth-child(#{$i}) {

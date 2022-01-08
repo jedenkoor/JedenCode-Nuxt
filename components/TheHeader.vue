@@ -21,9 +21,9 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  padding: 40px 0;
+  padding: 4rem 0;
   @include w767 {
-    padding: 20px 0;
+    padding: 2rem 0;
   }
   &__container {
     display: flex;

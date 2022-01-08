@@ -1,6 +1,6 @@
 <template>
   <NuxtLink class="header__logo" to="/">
-    <svg xmlns="http://www.w3.org/2000/svg" width="752" height="176" viewBox="0 0 752 176" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 752 176" fill="none">
       <path id="logo-bg" d="M748 172.5V3.5H3.5V172L748 172.5Z" fill="white" />
       <path
         d="M746.26 175.22H4.97002C2.30002 175.22 0.140015 173.05 0.140015 170.39V5.46989C0.140015 2.79989 2.31002 0.639893 4.97002 0.639893H746.26C748.93 0.639893 751.09 2.80989 751.09 5.46989V170.38C751.09 173.05 748.92 175.22 746.26 175.22ZM4.97002 4.63989C4.51002 4.63989 4.14001 5.00989 4.14001 5.46989V170.38C4.14001 170.84 4.51002 171.21 4.97002 171.21H746.26C746.72 171.21 747.09 170.84 747.09 170.38V5.46989C747.09 5.00989 746.72 4.63989 746.26 4.63989H4.97002Z"
@@ -40,14 +40,21 @@
 .header {
   &__logo {
     display: flex;
-    max-width: 250px;
+    width: 25rem;
     color: var(--main-text);
     @include w767 {
-      max-width: 200px;
+      width: 20rem;
     }
-    &:hover #logo-bg,
-    &:focus #logo-bg {
-      fill: var(--accent-logo);
+    @include hover {
+      &:hover #logo-bg,
+      &:focus-visible #logo-bg {
+        fill: var(--accent-logo);
+      }
+    }
+    @include active {
+      &:active #logo-bg {
+        fill: var(--accent-logo);
+      }
     }
     svg {
       display: block;
@@ -56,7 +63,7 @@
       fill: currentColor;
       object-fit: cover;
       #logo-bg {
-        transition: fill 0.3s ease-in-out;
+        transition: fill 0.2s;
         fill: var(--main-bg);
       }
     }

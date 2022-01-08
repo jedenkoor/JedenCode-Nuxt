@@ -14,6 +14,8 @@ module.exports = {
   rules: {
     "vue/multi-word-component-names": ["error", {
       "ignores": ["default", "error"]
-    }]
+    }],
+    "vue/attributes-order": "off",
+    "vue/order-in-components": "off"
   },
 }

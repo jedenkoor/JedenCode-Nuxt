@@ -1,3 +1,6 @@
+@import './variables/fonts.scss';
+@import './variables/indents.scss';
+
 :root {
   --scheme: dark;
   --main-bg: #222222;
@@ -29,17 +32,24 @@
 
 @media screen and (min-width: 1200px) {
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 0.8rem;
   }
   ::-webkit-scrollbar-button {
     display: none;
   }
   ::-webkit-scrollbar-thumb {
     background: var(--main-text);
-    border-radius: 2px;
+    border-radius: 0.2rem;
   }
   ::-webkit-scrollbar-track {
     background: var(--secondary-bg);
+  }
+}
+
+html {
+  font-size: 10px;
+  @include more-fullhd {
+    font-size: 0.52vw;
   }
 }
 
@@ -47,12 +57,13 @@ body {
   background-color: var(--main-bg);
   color: var(--main-text);
   font-family: 'Jura', sans-serif;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1.6rem;
+  line-height: 1.25;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s;
   @include w767 {
-    font-size: 14px;
+    font-size: 1.4rem;
   }
 }
 
@@ -69,7 +80,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1368px;
+  max-width: 136.8rem;
   margin: 0 auto;
   padding: $padding-container;
   @include w767 {
@@ -94,7 +105,7 @@ ol {
 
 p {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 1.6rem;
   &:last-child {
     margin-bottom: 0;
   }
@@ -137,9 +148,9 @@ input[type='number'] {
 
 .h2title {
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 3rem;
   transition: color 0.2s;
 }
 
@@ -151,4 +162,24 @@ input[type='number'] {
   @include w1023 {
     margin-bottom: $tablet-margin-section;
   }
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  transition: 0.2s;
+  cursor: pointer;
+  path {
+    transition: 0.2s;
+  }
+}
+
+.primary-btn {
+  background-color: var(--secondary-bg);
+  color: var(--main-text);
 }
